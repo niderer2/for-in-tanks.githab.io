@@ -42,7 +42,7 @@ function boom(x, y) {
 }
 
 function smoothMoveY(element, speed, stopY) {
-    // Получаем начальное значение top; если его нет, устанавливаем 0.
+    // ГЏГ®Г«ГіГ·Г ГҐГ¬ Г­Г Г·Г Г«ГјГ­Г®ГҐ Г§Г­Г Г·ГҐГ­ГЁГҐ top; ГҐГ±Г«ГЁ ГҐГЈГ® Г­ГҐГІ, ГіГ±ГІГ Г­Г ГўГ«ГЁГўГ ГҐГ¬ 0.
     let initialY = parseFloat(getComputedStyle(element).top);
     if (isNaN(initialY)) {
         initialY = 0;
@@ -50,20 +50,20 @@ function smoothMoveY(element, speed, stopY) {
     }
 
     let startTime = null;
-    let requestId; // идентификатор запроса анимационного кадра
+    let requestId; // ГЁГ¤ГҐГ­ГІГЁГґГЁГЄГ ГІГ®Г° Г§Г ГЇГ°Г®Г±Г  Г Г­ГЁГ¬Г Г¶ГЁГ®Г­Г­Г®ГЈГ® ГЄГ Г¤Г°Г 
 
     function step(timestamp) {
         if (!startTime) startTime = timestamp;
         const elapsed = timestamp - startTime;
-        const deltaY = speed * (elapsed / 1000) * 50; // изменение позиции в пикселях за прошедшее время
+        const deltaY = speed * (elapsed / 1000) * 50; // ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГҐ ГЇГ®Г§ГЁГ¶ГЁГЁ Гў ГЇГЁГЄГ±ГҐГ«ГїГµ Г§Г  ГЇГ°Г®ГёГҐГ¤ГёГҐГҐ ГўГ°ГҐГ¬Гї
         const newY = initialY + deltaY;
 
         element.style.top = newY + "px";
 
-        // Проверка условия остановки:
-        // Если движемся вниз (speed > 0) и новая позиция больше или равна stopY,
-        // или если движемся вверх (speed < 0) и новая позиция меньше или равна stopY,
-        // то устанавливаем позицию ровно в stopY и прерываем анимацию.
+        // ГЏГ°Г®ГўГҐГ°ГЄГ  ГіГ±Г«Г®ГўГЁГї Г®Г±ГІГ Г­Г®ГўГЄГЁ:
+        // Г…Г±Г«ГЁ Г¤ГўГЁГ¦ГҐГ¬Г±Гї ГўГ­ГЁГ§ (speed > 0) ГЁ Г­Г®ГўГ Гї ГЇГ®Г§ГЁГ¶ГЁГї ГЎГ®Г«ГјГёГҐ ГЁГ«ГЁ Г°Г ГўГ­Г  stopY,
+        // ГЁГ«ГЁ ГҐГ±Г«ГЁ Г¤ГўГЁГ¦ГҐГ¬Г±Гї ГўГўГҐГ°Гµ (speed < 0) ГЁ Г­Г®ГўГ Гї ГЇГ®Г§ГЁГ¶ГЁГї Г¬ГҐГ­ГјГёГҐ ГЁГ«ГЁ Г°Г ГўГ­Г  stopY,
+        // ГІГ® ГіГ±ГІГ Г­Г ГўГ«ГЁГўГ ГҐГ¬ ГЇГ®Г§ГЁГ¶ГЁГѕ Г°Г®ГўГ­Г® Гў stopY ГЁ ГЇГ°ГҐГ°Г»ГўГ ГҐГ¬ Г Г­ГЁГ¬Г Г¶ГЁГѕ.
         let h = false
         if (speed < 0) {
             if (checkCollisionsWithList(element, projectiles2)) {
@@ -318,19 +318,19 @@ let moveRight = false
 const speed = 5;
 
 document.addEventListener('keydown', function (event) {
-    if (event.key == 'a' || event.key == 'A') {
+    if (event.code == 'a' || event.code == 'A') {
         moveLeft = true;
     }
-    if (event.key == 'd' || event.key == 'D') {
+    if (event.code == 'd' || event.code == 'D') {
         moveRight = true;
     }
 });
 
 document.addEventListener('keyup', function (event) {
-    if (event.key == 'a' || event.key == 'A') {
+    if (event.code == 'a' || event.code == 'A') {
         moveLeft = false;
     }
-    if (event.key == 'd' || event.key == 'D') {
+    if (event.code == 'd' || event.code == 'D') {
         moveRight = false;
     }
 });
