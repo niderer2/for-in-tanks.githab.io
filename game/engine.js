@@ -328,10 +328,10 @@ document.addEventListener('keydown', function (event) {
 
 document.addEventListener('keyup', function (event) {
     if (event.code === 'KeyA') {
-    moveLeft = true;
+    moveLeft = false;
     }
     if (event.code === 'KeyD') {
-        moveRight = true;
+        moveRight = false;
     }
 });
 
