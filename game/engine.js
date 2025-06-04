@@ -327,11 +327,11 @@ document.addEventListener('keydown', function (event) {
 });
 
 document.addEventListener('keyup', function (event) {
-    if (event.code == 'a' || event.code == 'A') {
-        moveLeft = false;
+    if (event.code === 'KeyA') {
+    moveLeft = true;
     }
-    if (event.code == 'd' || event.code == 'D') {
-        moveRight = false;
+    if (event.code === 'KeyD') {
+        moveRight = true;
     }
 });
 
