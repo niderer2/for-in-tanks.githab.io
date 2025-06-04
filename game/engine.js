@@ -318,10 +318,10 @@ let moveRight = false
 const speed = 5;
 
 document.addEventListener('keydown', function (event) {
-    if (event.code == 'a' || event.code == 'A') {
-        moveLeft = true;
+    if (event.code === 'KeyA') {
+    moveLeft = true;
     }
-    if (event.code == 'd' || event.code == 'D') {
+    if (event.code === 'KeyD') {
         moveRight = true;
     }
 });
